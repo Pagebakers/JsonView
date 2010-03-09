@@ -30,6 +30,7 @@ class JsonView extends View {
                 header('HTTP/1.1 400 Bad Request');
             }
             
+            // Use this if you depend on authentication
             if(isset($this->viewVars['result']['sessionState']) && $this->viewVars['result']['sessionState'] == 'Expired') {
                 header('SessionState: Expired');
                 header('HTTP/1.1 403 Forbidden');
@@ -38,6 +39,7 @@ class JsonView extends View {
 
             $out = json_encode($this->viewVars['result']);
             
+            // JsonP support
             $callback = null;
             if(isset($_GET[$this->jsonp])) {
                 $callback = $_GET[$this->jsonp];
