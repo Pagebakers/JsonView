@@ -43,7 +43,7 @@ class JsonView extends View {
             $callback = null;
             if(isset($_GET[$this->jsonp])) {
                 $callback = $_GET[$this->jsonp];
-            elseif(isset($_POST[$this->jsonp])) {
+            } elseif(isset($_POST[$this->jsonp])) {
                 $callback = $_POST[$this->jsonp];
             }
             
