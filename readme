@@ -1,1 +1,52 @@
-Docs...
+h1. JsonView for CakePHP
+
+h2. Description
+
+Renders the 'result' view variables as json, with support for JsonP
+
+h2. Installation
+
+* Submodule:
+** @git submodule add git://github.com/Pagebakers/JsonView.git path/to/app/plugins/json_view@
+** @git submodule init@
+** @git submodule update@
+* Clone:
+** @git clone git://github.com/Pagebakers/JsonView.git path/to/app/plugins/json_view@
+* Download zip
+** Download @http://github.com/Pagebakers/JsonView/zipball/master@
+** Extract to your @app/plugins@ folder
+** Rename the extracted folder to @json_view@
+*** The resulting structure should be @app/plugins/json_view/views/json.php@
+
+h2. Usage
+
+* To use it in every action of a controller, add it to your beforeFilter:
+
+<pre><code>
+function beforeFilter() {
+	$this->view = 'JsonView.Json';
+}
+</code></pre>
+
+* or set it as a class variable
+
+@var $view = 'JsonView.Json'@
+
+* To initialize the view in whatever function you want it to be usable in
+
+<pre><code>
+function view($id = NULL) {
+	$this->view = 'JsonView.Json';
+}
+</code></pre>
+
+* Then set json variables to the 'result'
+
+<pre><code>
+function view($id = NULL) {
+	$this->view = 'JsonView.Json';
+	
+	$results = array('of', 'results', 'for', 'view');
+	$this->set(compact('results'));
+}
+</code></pre>
