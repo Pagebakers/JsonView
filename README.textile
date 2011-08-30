@@ -35,7 +35,7 @@ function beforeFilter() {
 * To initialize the view in whatever function you want it to be usable in
 
 <pre><code>
-function view($id = NULL) {
+function action($id = NULL) {
 	$this->view = 'JsonView.Json';
 }
 </code></pre>
@@ -43,10 +43,10 @@ function view($id = NULL) {
 * Then set json variables to the 'result'
 
 <pre><code>
-function view($id = NULL) {
+function action($id = NULL) {
 	$this->view = 'JsonView.Json';
 	
-	$results = array('of', 'results', 'for', 'view');
-	$this->set(compact('results'));
+	$result = array('of', 'results', 'for', 'view');
+	$this->set(compact('result'));
 }
 </code></pre>
